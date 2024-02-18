@@ -1,6 +1,6 @@
 <div class="no-movie-found-container" *ngIf="!singleMovie; else singleMovieContainer">
-    <h1>No Movie Found</h1>
-    <p>Go back to <a class="go-back-to-movies" [routerLink]="'/movies'">Movies</a></p>
+    <h1>Waiting for movie to load</h1>
+    <p>In case it took too long go back to <a class="go-back-to-movies" [routerLink]="'/movies'">Movies</a></p>
 </div>
 
 <ng-template #singleMovieContainer>
