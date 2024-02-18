@@ -22,4 +22,8 @@ export class MoviesService {
   getSingleMovie(movieId: number): Observable<SingleMovieObject> {
     return this._httpClient.get<SingleMovieObject>(`https://api.themoviedb.org/3/movie/${movieId}?api_key=14230396e998f237b81842b1d8a58e3e`);
   };
+
+  getSearchMovie(movieName: string): Observable<MoviesInterface> {
+    return this._httpClient.get<MoviesInterface>(`https://api.themoviedb.org/3/search/movie?query=${movieName}&api_key=14230396e998f237b81842b1d8a58e3e`);
+  };
 }

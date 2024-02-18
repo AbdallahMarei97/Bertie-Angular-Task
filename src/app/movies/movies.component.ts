@@ -14,7 +14,8 @@ export class MoviesComponent implements OnInit, OnDestroy {
 
   moviesList: MoviesObject[] = []
   private subscription!: Subscription
-  titleFilter = new FormControl('')
+  titleFilter: string = ''
+  titleFetch: string = ''
   faSearch = faSearch
   totalPages: number = 10
   currentPage: number = 1
@@ -32,6 +33,12 @@ export class MoviesComponent implements OnInit, OnDestroy {
   changePage(page: number): void {
     this.currentPage = page;
     this.moviesService.getMovies(this.currentPage).subscribe((movies) => {
+      this.moviesList = movies.results
+    });
+  }
+
+  searchAllMovies(): void {
+    this.moviesService.getSearchMovie(this.titleFetch).subscribe((movies) => {
       this.moviesList = movies.results
     });
   }

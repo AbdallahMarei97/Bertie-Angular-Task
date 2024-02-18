@@ -5,7 +5,7 @@ import { MoviesComponent } from './movies.component';
 import { SingleMovieComponent } from './single-movie/single-movie.component';
 import { CommonModule } from '@angular/common';
 import { FilterMoviesPipe } from './filter-movies.pipe';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PaginationComponent } from '../pagination/pagination.component';
 
@@ -20,7 +20,7 @@ import { PaginationComponent } from '../pagination/pagination.component';
     CommonModule,
     FontAwesomeModule,
     MoviesRoutingModule,
-    ReactiveFormsModule,
+    FormsModule,
   ]
 })
 export class MoviesModule { }
