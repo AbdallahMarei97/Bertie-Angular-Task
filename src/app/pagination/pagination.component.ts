@@ -13,8 +13,7 @@ export class PaginationComponent implements OnInit {
   total: number = 10;
 
   ngOnInit(): void {
-    const pagesCount = Math.ceil(this.total);
-    this.pages = this.range(1, pagesCount);
+    this.pages = this.range(1, this.total);
   }
 
   range(start: number, end: number): number[] {
