@@ -1,0 +1,22 @@
+.navbar-container {
+    align-items: center;
+    background-color: #333;
+    display: flex;
+    gap: 30px;
+    height: 70px;
+}
+
+.logo {
+    cursor: pointer;
+    margin-left: 20px;
+    width: 50px;
+}
+
+.navbar-links {
+    a {
+        color: #fff;
+        cursor: pointer;
+        font-size: 20px;
+        text-decoration: none;
+    }
+}

@@ -1,0 +1,35 @@
+<div class="no-movie-found-container" *ngIf="!singleMovie; else singleMovieContainer">
+    <h1>No Movie Found</h1>
+    <p>Go back to <a class="go-back-to-movies" [routerLink]="'/movies'">Movies</a></p>
+</div>
+
+<ng-template #singleMovieContainer>
+    <div class="movie">
+        <div class="movie__data">
+            <div class="movie__poster">
+                <span class="movie__poster--fill">
+                  <img src="https://image.tmdb.org/t/p/w500/{{singleMovie.poster_path}}" />
+                </span>
+                <span class="movie__poster--featured">
+                  <img src="https://image.tmdb.org/t/p/w500/{{singleMovie.poster_path}}" />
+                </span>
+            </div>
+            <div class="movie__details">
+                <h2 class="movie__title">{{singleMovie.title}}</h2>
+                <ul class="movie__tags list--inline">
+                    <li class="movie__year">Release Date: {{singleMovie.release_date}}</li>
+                    <li class="movie__year">Runtime: {{singleMovie.runtime}} Minutes</li>
+                </ul>
+                <p class="movie__plot">{{singleMovie.overview}}</p>
+                <div class="movie__credits">
+                    <ul class="movie__actors list--inline">
+                        Genres:
+                        <li *ngFor="let genre of singleMovie.genres">
+                            {{genre.name}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

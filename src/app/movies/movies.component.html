@@ -1,0 +1,24 @@
+<h1 class="movies-page-title">Check out our latest movies</h1>
+<div class="wrap">
+    <div class="search">
+       <input type="text" class="searchTerm" placeholder="Enter Movie Title" [formControl]="titleFilter">
+       <button type="submit" class="searchButton">
+        <fa-icon [icon]="faSearch"></fa-icon>
+      </button>
+    </div>
+ </div>
+<div class="movies-list-container">
+    <div style="background-image: url(https://image.tmdb.org/t/p/w500/{{movie.poster_path}});" *ngFor="let movie of moviesList | filterMovies : titleFilter.value || ''" class="movie-card">
+        <div class="movie-card-details">
+            <h1 class="movie-card-title">{{movie.title}}</h1>
+            <div>
+                <span class="movie-card-release">Release Date: {{movie.release_date}}</span>
+                <span class="movie-card-rating">Rating: {{movie.vote_average | number : '1.0-1'}}</span>
+            </div>
+            <p class="movie-card-description">{{movie.overview}}</p>
+        </div>
+        <button [routerLink]="['/movies', movie.id]" class="movie-card-button">Check Movie</button>
+    </div>
+</div>
+
+<app-pagination [currentPage]="currentPage" (changePage)="changePage($event)"></app-pagination>
