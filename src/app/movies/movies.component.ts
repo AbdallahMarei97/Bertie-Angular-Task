@@ -1,8 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MoviesService } from './movies.service';
 import { MoviesObject } from './movies.interface';
-import { Subscription } from 'rxjs';
-import { FormControl } from '@angular/forms';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -10,10 +8,9 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.scss']
 })
-export class MoviesComponent implements OnInit, OnDestroy {
+export class MoviesComponent implements OnInit {
 
   moviesList: MoviesObject[] = []
-  private subscription!: Subscription
   titleFilter: string = ''
   titleFetch: string = ''
   faSearch = faSearch
@@ -41,11 +38,5 @@ export class MoviesComponent implements OnInit, OnDestroy {
     this.moviesService.getSearchMovie(this.titleFetch).subscribe((movies) => {
       this.moviesList = movies.results
     });
-  }
-
-  ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe()
-    }
   }
 }

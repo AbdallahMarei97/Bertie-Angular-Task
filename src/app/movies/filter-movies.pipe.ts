@@ -9,5 +9,4 @@ export class FilterMoviesPipe implements PipeTransform {
   transform(moviesList: MoviesObject[], title: string): MoviesObject[] {
     return moviesList.filter((movie) => movie.title.toLowerCase().includes(title.toLowerCase()));
   }
-
 }

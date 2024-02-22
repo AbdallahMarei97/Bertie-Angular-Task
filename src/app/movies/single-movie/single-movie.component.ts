@@ -13,12 +13,11 @@ export class SingleMovieComponent implements OnInit, OnDestroy {
 
   singleMovie!: SingleMovieObject
   movieId: number = 0;
-  private routeSub!: Subscription;
-  private subscription!: Subscription
+  public routeSub!: Subscription;
 
   constructor(
     public moviesService: MoviesService,
-    private route: ActivatedRoute
+    public route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -31,8 +30,5 @@ export class SingleMovieComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.routeSub.unsubscribe();
-    if (this.subscription) {
-      this.subscription.unsubscribe()
-    }
   }
 }
